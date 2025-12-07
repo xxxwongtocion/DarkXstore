@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARKX OFFICIAL STORE - Premium WhatsApp Bots & Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a0a0a;
+            --primary-red: #e50914;
+            --primary-gold: #ffd700;
+            --primary-gray: #1a1a1a;
+            --light-gray: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.8) 100%);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            color: var(--primary-red);
+            font-size: 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-red);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .login-btn, .logout-btn {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .login-btn:hover, .logout-btn:hover {
+            background-color: #c40812;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, var(--primary-red), #ff2e2e);
+            color: white;
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(229, 9, 20, 0.4);
+        }
+
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 3rem 0;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-gold));
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .product-card {
+            background-color: var(--primary-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-red);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #222, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-red);
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .product-description {
+            color: #aaa;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background-color: #c40812;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 450px;
+            height: 100vh;
+            background-color: var(--primary-dark);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+            border-left: 2px solid var(--primary-red);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .cart-item-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        .remove-item {
+            background-color: transparent;
+            border: 1px solid #666;
+            color: #ccc;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #333;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cart-total span:last-child {
+            color: var(--primary-gold);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-red), #ff2e2e);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(90deg, #c40812, #e50914);
+        }
+
+        /* Login Modal */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .login-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-form {
+            background-color: var(--primary-gray);
+            padding: 3rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            border: 2px solid var(--primary-red);
+        }
+
+        .login-form h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background-color: #222;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .login-submit {
+            width: 100%;
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .login-submit:hover {
+            background-color: #c40812;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+            border-top: 2px solid var(--primary-red);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-red);
+        }
+
+        .sell-with-us, .advertising {
+            background-color: var(--primary-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #777;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h2 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cart-modal {
+                width: 100%;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>DARKX OFFICIAL STORE</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#whatsapp-bots">WhatsApp Bots</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            
+            <div class="user-section">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <button class="login-btn" id="loginBtn">Login</button>
+                <button class="logout-btn" id="logoutBtn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>PREMIUM WHATSAPP BOTS & PRODUCTS</h2>
+            <p>Get the most advanced WhatsApp automation bots for your business. Boost efficiency, automate responses, and increase sales with our premium solutions.</p>
+            <a href="#whatsapp-bots" class="cta-button">BUY WHATSAPP BOT NOW</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="container" id="products">
+        <h2 class="section-title">OUR PRODUCTS</h2>
+        
+        <div class="products-grid">
+            <!-- WhatsApp Bot Product -->
+            <div class="product-card">
+                <div class="product-badge">BEST SELLER</div>
+                <div class="product-image">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">WhatsApp Business Bot</h3>
+                    <p class="product-description">Advanced automation bot for WhatsApp Business with AI responses, auto-reply, bulk messaging, and analytics.</p>
+                    <div class="product-price">3,000 TSh</div>
+                    <button class="add-to-cart" data-product="WhatsApp Business Bot" data-price="3000">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Marketing Bot -->
+            <div class="product-card">
+                <div class="product-badge">POPULAR</div>
+                <div class="product-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Marketing Automation Bot</h3>
+                    <p class="product-description">Automate marketing campaigns, customer follow-ups, and promotional broadcasts on WhatsApp.</p>
+                    <div class="product-price">4,500 TSh</div>
+                    <button class="add-to-cart" data-product="Marketing Automation Bot" data-price="4500">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Customer Support Bot -->
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Customer Support Bot</h3>
+                    <p class="product-description">24/7 customer support automation with ticket system, FAQ responses, and issue resolution.</p>
+                    <div class="product-price">5,000 TSh</div>
+                    <button class="add-to-cart" data-product="Customer Support Bot" data-price="5000">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- E-commerce Integration -->
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">E-commerce Integration</h3>
+                    <p class="product-description">Connect your online store to WhatsApp for order notifications, payment alerts, and tracking updates.</p>
+                    <div class="product-price">6,000 TSh</div>
+                    <button class="add-to-cart" data-product="E-commerce Integration" data-price="6000">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Bots Section -->
+    <section class="container" id="whatsapp-bots">
+        <h2 class="section-title">WHATSAPP BOTS FROM DARKX</h2>
+        
+        <div class="products-grid">
+            <div class="product-card" style="grid-column: span 2;">
+                <div class="product-image" style="height: 250px;">
+                    <i class="fab fa-whatsapp" style="font-size: 5rem;"></i>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">DARKX PREMIUM WHATSAPP BOT</h3>
+                    <p class="product-description">Our flagship WhatsApp bot with all premium features: AI-powered responses, multi-language support, analytics dashboard, unlimited contacts, broadcast messaging, auto-reply, media sharing, and 24/7 support.</p>
+                    <div class="product-price">3,000 TSh</div>
+                    <button class="add-to-cart" data-product="DARKX Premium WhatsApp Bot" data-price="3000" style="padding: 1.2rem; font-size: 1.1rem;">BUY WHATSAPP BOT NOW</button>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 4rem 0;">
+            <button class="cta-button" id="openCart" style="font-size: 1.3rem; padding: 1.5rem 4rem;">VIEW CART & CHECKOUT</button>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <p style="text-align: center; padding: 2rem; color: #777;">Your cart is empty</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">0 TSh</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <h3>Login to DARKX</h3>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="login-submit">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; color: #aaa;">Demo: Use any credentials to login</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>DARKX OFFICIAL STORE</h4>
+                    <p>Premium WhatsApp bots and digital products for businesses. We provide cutting-edge automation solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#whatsapp-bots">WhatsApp Bots</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Sell With Us</h4>
+                    <div class="sell-with-us">
+                        <p>Want to sell your products with us?</p>
+                        <a href="https://wa.me/255775710774?text=Hi%20DARKX%20STORE,%20I%20want%20to%20sell%20my%20products%20with%20you" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Contact via WhatsApp
+                        </a>
+                    </div>
+                    
+                    <h4 style="margin-top: 2rem;">Advertising</h4>
+                    <div class="advertising">
+                        <p>We handle advertising for businesses</p>
+                        <a href="https://wa.me/255775710774?text=Hi%20DARKX%20STORE,%20I'm%20interested%20in%20your%20advertising%20services" class="whatsapp-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Inquire About Ads
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DARKX OFFICIAL STORE. All rights reserved.</p>
+                <p>Contact: +255 775 710 774 | Email: info@darkxstore.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // DOM Elements
+        const cartIcon = document.getElementById('cartIcon');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const loginModal = document.getElementById('loginModal');
+        const loginForm = document.getElementById('loginForm');
+        const overlay = document.getElementById('overlay');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const openCartBtn = document.getElementById('openCart');
+
+        // Cart state
+        let cart = JSON.parse(localStorage.getItem('darkx_cart')) || [];
+        let isLoggedIn = localStorage.getItem('darkx_logged_in') === 'true';
+        let currentUser = JSON.parse(localStorage.getItem('darkx_user')) || null;
+
+        // Initialize the page
+        function init() {
+            updateCartUI();
+            updateLoginUI();
+            
+            // Event Listeners
+            cartIcon.addEventListener('click', openCart);
+            closeCart.addEventListener('click', closeCartModal);
+            loginBtn.addEventListener('click', openLoginModal);
+            logoutBtn.addEventListener('click', logout);
+            overlay.addEventListener('click', closeAllModals);
+            checkoutBtn.addEventListener('click', checkout);
+            openCartBtn.addEventListener('click', openCart);
+            
+            // Add to cart buttons
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const product = button.getAttribute('data-product');
+                    const price = parseInt(button.getAttribute('data-price'));
+                    addToCart(product, price);
+                });
+            });
+            
+            // Login form
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                login(username, password);
+            });
+        }
+
+        // Cart functions
+        function addToCart(product, price) {
+            // Check if already in cart
+            const existingItem = cart.find(item => item.product === product);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    product,
+                    price,
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('darkx_cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartUI();
+            
+            // Show notification
+            showNotification(`${product} added to cart!`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('darkx_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; padding: 2rem; color: #777;">Your cart is empty</p>';
+                cartTotal.textContent = '0 TSh';
+                return;
+            }
+            
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.product}</h4>
+                            <p>${item.quantity} x ${item.price.toLocaleString()} TSh</p>
+                        </div>
+                        <div class="cart-item-price">${itemTotal.toLocaleString()} TSh</div>
+                        <button class="remove-item" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartTotal.textContent = `${total.toLocaleString()} TSh`;
+        }
+
+        // Login functions
+        function login(username, password) {
+            // In a real app, you would validate credentials with a server
+            // For demo purposes, we accept any credentials
+            isLoggedIn = true;
+            currentUser = { username, loginTime: new Date().toISOString() };
+            
+            // Save to localStorage
+            localStorage.setItem('darkx_logged_in', 'true');
+            localStorage.setItem('darkx_user', JSON.stringify(currentUser));
+            
+            // Update UI
+            updateLoginUI();
+            closeLoginModal();
+            
+            // Show welcome message
+            showNotification(`Welcome, ${username}!`);
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            currentUser = null;
+            
+            // Clear from localStorage
+            localStorage.setItem('darkx_logged_in', 'false');
+            localStorage.removeItem('darkx_user');
+            
+            // Update UI
+            updateLoginUI();
+            
+            // Show logout message
+            showNotification('Logged out successfully.');
+        }
+
+        function updateLoginUI() {
+            if (isLoggedIn && currentUser) {
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+            } else {
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+            }
+        }
+
+        // Checkout function
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!');
+                return;
+            }
+            
+            // Get cart summary
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemList = cart.map(item => `${item.product} (${item.quantity})`).join(', ');
+            
+            // Create WhatsApp message
+            const message = `Hi DARKX STORE, I want to buy the following bots/products:\n\n${itemList}\n\nTotal: ${total.toLocaleString()} TSh\n\nPlease provide the bot and payment details.`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/255775710774?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Clear cart after checkout
+            cart = [];
+            localStorage.setItem('darkx_cart', JSON.stringify(cart));
+            updateCartUI();
+            
+            // Close cart modal
+            closeCartModal();
+            
+            // Show success message
+            showNotification('Opening WhatsApp to complete your order!');
+        }
+
+        // Modal functions
+        function openCart() {
+            cartModal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCartModal() {
+            cartModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openLoginModal() {
+            loginModal.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLoginModal() {
+            loginModal.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeAllModals() {
+            closeCartModal();
+            closeLoginModal();
+        }
+
+        // Notification function
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background-color: var(--primary-red);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                z-index: 9999;
+                font-weight: 600;
+                transform: translateY(100px);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateY(0)';
+                notification.style.opacity = '1';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateY(100px)';
+                notification.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
