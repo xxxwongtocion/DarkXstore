@@ -1,0 +1,8 @@
+{
+  "name": "DarkXstore",
+  "description": "Simple static HTML deployment to Heroku",
+  "repository": "https://github.com/xxxwongtocion/DarkXstore",
+  "buildpacks": [
+    { "url": "heroku-community/static" }
+  ]
+}
